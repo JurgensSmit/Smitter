@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet/less" href="/style.less">
+    <script src="/less.js"></script>
+    <title>&middot;Smitter &middot;Jurgens Smit</title>
+    <meta name="description" content="Personal project of Jurgens Smit – Ruby on Rails developer.">
+    <meta name="keywords" content="Ruby, Rails, Ruby on Rails, web designer, back end developer, Jurgens Smit, sydney, front end developer, Javascript, HTML, CSS" />
+<meta name="author" content="Jurgens Smit">
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <a href='<%= root_url %>'></a>
+            <a href="/" class="brand"><strong>SMITTER</a></strong> |
+          
+
+                <%= link_to "Public Smitters", ribbits_path %>
+                -
+                <%= link_to "Public Profiles", users_path %>
+                -
+                <%= link_to "Buddies' Smitters", buddies_path %>
+                -
+                <%= link_to "My Profile", current_user %>
+                -
+        		<%= link_to "Log Out", sessions_destroy_path %>
+
+        </div>
+        
+    </header>
+    <div id="content">
+        <div class="wrapper">
+            <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, class: "flash #{name}" %>
+            <% end %>
+            <%= yield %>
+        </div>
+    </div>
+    <footer>
+        <div class="wrapper">
+            Smitter. Better than Twitter.
+        </div>
+    </footer>
+</body>
+</html>
